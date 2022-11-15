@@ -1,2 +1,2 @@
 # mDaily
-react test
+react-native
