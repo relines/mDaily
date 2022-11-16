@@ -1,20 +1,21 @@
 import React from 'react';
-import view from './view';
 import {View, Text, Button} from 'react-native';
 
-export default class ScreenHome extends React.Component {
-  // 自定义当前页面路由配置，后面介绍的TabNavigator也使用这个对象中的属性
-  static navigationOptions = {
-    // 设置 title
-    title: '首页',
-  };
+const ScreenHome = props => {
+  const {navigation} = props;
+  return (
+    <View>
+      <Text style={{fontSize: 36}}>home Page</Text>
+      <Button
+        title="goSomePage"
+        // 路由跳转
+        onPress={() => navigation.navigate('ScreenSome',{
+          id: 1,
+          desc: 'this is a message'
+        })}
+      />
+    </View>
+  );
+};
 
-  constructor(props) {
-    super(props);
-    this.navigation = props.navigation;
-  }
-
-  render() {
-    return view(this);
-  }
-}
+export default ScreenHome;
