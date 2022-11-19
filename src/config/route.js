@@ -2,6 +2,7 @@ import ScreenHome from '../screens/ScreenHome/index';
 import ScreenSome from '../screens/ScreenSome/index';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {View, Text, Button} from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,7 +23,9 @@ function App() {
         <Stack.Screen
           name="ScreenHome"
           component={ScreenHome}
-          options={{title: 'Overview'}}
+          options={{
+            title: 'Overview',
+          }}
         />
         <Stack.Screen
           name="ScreenSome"
@@ -36,6 +39,13 @@ function App() {
             headerTitleStyle: {
               fontWeight: 'bold',
             },
+            headerRight: () => (
+              <Button
+                onPress={() => alert('This is a button!')}
+                title="Info"
+                color="#fff"
+              />
+            ),
           }}
         />
       </Stack.Navigator>
