@@ -24,7 +24,7 @@ function App() {
           name="ScreenHome"
           component={ScreenHome}
           options={{
-            title: 'Overview',
+            title: 'home',
           }}
         />
         <Stack.Screen

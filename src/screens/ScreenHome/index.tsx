@@ -1,14 +1,16 @@
 import React, {useLayoutEffect} from 'react';
 import {View, Text, Button} from 'react-native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-const ScreenHome = props => {
+function HomeScreen(props) {
   const {navigation} = props;
+
   const [count, setCount] = React.useState(0);
 
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <Button onPress={() => setCount(c => c + 1)} title="Update count" />
+        <Button onPress={() => setCount(c => c + 1)} title="Update count2" />
       ),
     });
   }, [navigation]);
@@ -28,6 +30,35 @@ const ScreenHome = props => {
         }
       />
     </View>
+  );
+}
+
+function SettingsScreen() {
+  return (
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <Text>Settings!</Text>
+    </View>
+  );
+}
+
+const ScreenHome = props => {
+  const {navigation} = props;
+
+  const Tab = createBottomTabNavigator();
+
+  return (
+    <Tab.Navigator
+      screenOptions={({route}) => ({
+        tabBarActiveTintColor: 'tomato',
+        tabBarInactiveTintColor: 'gray',
+      })}>
+      <Tab.Screen
+        name="Feed"
+        component={HomeScreen}
+        options={{tabBarBadge: 3}}
+      />
+      <Tab.Screen name="Messages" component={SettingsScreen} />
+    </Tab.Navigator>
   );
 };
 
