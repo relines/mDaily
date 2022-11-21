@@ -1,5 +1,5 @@
-import ScreenHome from '../screens/ScreenHome/index';
-import ScreenSome from '../screens/ScreenSome/index';
+import Home from '../screens/Home/index';
+import Detail from '../screens/Detail/index';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {View, Text, Button} from 'react-native';
@@ -12,24 +12,24 @@ function App() {
       <Stack.Navigator
         initialRouteName="Home"
         screenOptions={{
-          headerStyle: {
-            backgroundColor: '#f4511e',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
+          // headerStyle: {
+          //   backgroundColor: '#f4511e',
+          // },
+          // headerTintColor: '#fff',
+          // headerTitleStyle: {
+          //   fontWeight: 'bold',
+          // },
         }}>
         <Stack.Screen
-          name="ScreenHome"
-          component={ScreenHome}
+          name="Home"
+          component={Home}
           options={{
-            title: 'home',
+            
           }}
         />
         <Stack.Screen
-          name="ScreenSome"
-          component={ScreenSome}
+          name="Detail"
+          component={Detail}
           options={{
             title: 'some',
             headerStyle: {

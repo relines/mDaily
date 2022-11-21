@@ -23,7 +23,7 @@ function HomeScreen(props) {
         title="goSomePage"
         // 路由跳转
         onPress={() =>
-          navigation.navigate('ScreenSome', {
+          navigation.navigate('Detail', {
             id: 1,
             desc: 'this is a message',
           })
@@ -41,7 +41,7 @@ function SettingsScreen() {
   );
 }
 
-const ScreenHome = props => {
+const Home = props => {
   const {navigation} = props;
 
   const Tab = createBottomTabNavigator();
@@ -62,4 +62,4 @@ const ScreenHome = props => {
   );
 };
 
-export default ScreenHome;
+export default Home;
