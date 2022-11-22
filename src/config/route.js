@@ -1,54 +1,28 @@
-import Home from '../screens/Home/index';
-import Detail from '../screens/Detail/index';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {View, Text, Button} from 'react-native';
 
-const Stack = createNativeStackNavigator();
+import {NavigationContainer} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+
+import Home from '../screens/Home/index';
+import Detail from '../screens/Detail/index';
+
+const Tab = createBottomTabNavigator();
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="Home"
-        screenOptions={{
-          // headerStyle: {
-          //   backgroundColor: '#f4511e',
-          // },
-          // headerTintColor: '#fff',
-          // headerTitleStyle: {
-          //   fontWeight: 'bold',
-          // },
-        }}>
-        <Stack.Screen
+      <Tab.Navigator
+        screenOptions={({route}) => ({
+          tabBarActiveTintColor: 'tomato',
+          tabBarInactiveTintColor: 'gray',
+        })}>
+        <Tab.Screen
           name="Home"
           component={Home}
-          options={{
-            
-          }}
+          options={{tabBarBadge: 3}}
         />
-        <Stack.Screen
-          name="Detail"
-          component={Detail}
-          options={{
-            title: 'some',
-            headerStyle: {
-              backgroundColor: '#f4511e',
-            },
-            headerTintColor: '#009',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
-            headerRight: () => (
-              <Button
-                onPress={() => alert('This is a button!')}
-                title="Info"
-                color="#fff"
-              />
-            ),
-          }}
-        />
-      </Stack.Navigator>
+        <Tab.Screen name="Detail" component={Detail} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }

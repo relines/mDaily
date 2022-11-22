@@ -1,8 +1,7 @@
 import React, {useLayoutEffect} from 'react';
 import {View, Text, Button} from 'react-native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-function HomeScreen(props) {
+function Home(props) {
   const {navigation} = props;
 
   const [count, setCount] = React.useState(0);
@@ -32,34 +31,5 @@ function HomeScreen(props) {
     </View>
   );
 }
-
-function SettingsScreen() {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
-
-const Home = props => {
-  const {navigation} = props;
-
-  const Tab = createBottomTabNavigator();
-
-  return (
-    <Tab.Navigator
-      screenOptions={({route}) => ({
-        tabBarActiveTintColor: 'tomato',
-        tabBarInactiveTintColor: 'gray',
-      })}>
-      <Tab.Screen
-        name="Feed"
-        component={HomeScreen}
-        options={{tabBarBadge: 3}}
-      />
-      <Tab.Screen name="Messages" component={SettingsScreen} />
-    </Tab.Navigator>
-  );
-};
 
 export default Home;
