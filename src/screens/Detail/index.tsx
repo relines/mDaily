@@ -6,14 +6,9 @@ const Detail = props => {
   console.log(333, route)
   return (
     <View>
-      <Text style={{fontSize: 36}}>some Page</Text>
-      <Text>{route.params.id}</Text>
-      <Text>{route.params.desc}</Text>
-      <Button
-        title="goHomePage"
-        // 路由跳转
-        onPress={() => navigation.navigate('Home')}
-      />
+      <Text style={{fontSize: 36}}>这是日历页</Text>
+      <Text>{route.params?.id}</Text>
+      <Text>{route.params?.desc}</Text>
       <Button title="Go back" onPress={() => navigation.goBack()} />
     </View>
   );
