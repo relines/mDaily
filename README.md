@@ -1,2 +1,0 @@
-# mDaily
-react-native
